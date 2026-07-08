@@ -9,7 +9,7 @@ This project is intended for people searching for a **Logitech Action Ring plugi
 - **Project name:** IntelliJ IDEA Action Ring Plugin for Logitech MX Master 4
 - **Plugin display name:** IntelliJ IDEA Action Ring
 - **Author:** Oleg Zdanevich
-- **Version:** 1.0
+- **Version:** 1.1
 - **License:** MIT
 - **Primary target:** macOS with Logitech MX Master 4, Logi Options+, Logi Plugin Service, and JetBrains IntelliJ IDEA
 - **Windows support:** build-ready best effort support for Maven Run Anything submission; runtime validation must be done on a Windows machine
@@ -175,7 +175,7 @@ They were unreliable in this setup through Action Ring. Some depended on keyboar
 Use the packaged plugin file:
 
 ```text
-build/IntelliJIdeaActionRing_1_0.lplug4
+build/IntelliJIdeaActionRing_1_1.lplug4
 ```
 
 Open it with Logi Plugin Service / Logi Options+ and then assign the actions to your MX Master 4 Action Ring.
@@ -222,7 +222,7 @@ tests/
   IntelliJIdeaPlugin.Tests/   Console-based unit tests without NuGet dependencies
 build/
   build.sh                    Build, test, package, and verify script
-  IntelliJIdeaActionRing_1_0.lplug4
+  IntelliJIdeaActionRing_1_1.lplug4
   .dotnet/                    Project-local .NET SDK
   .tools/                     Project-local LogiPluginTool
   dotnet-install.sh           Local SDK installer
@@ -282,7 +282,7 @@ Run the local build gate:
 ./build/build.sh
 ```
 
-It builds the plugin, runs the unit tests, packages `build/IntelliJIdeaActionRing_1_0.lplug4`, and verifies the package.
+It builds the plugin, runs the unit tests, packages `build/IntelliJIdeaActionRing_1_1.lplug4`, and verifies the package.
 
 To build and refresh the Logi Plugin Service development link locally:
 
@@ -298,13 +298,13 @@ PATH="$PWD/build/.dotnet:$PATH" \
 The repository also has GitHub Actions workflows:
 
 - `.github/workflows/ci.yml` runs on pull requests, pushes to `master` or `main`, and manual dispatch.
-- `.github/workflows/release.yml` runs when a version tag like `v1.0.0` is pushed.
+- `.github/workflows/release.yml` runs when a version tag like `v1.1.0` is pushed.
 
-Both workflows run `./build/build.sh`. The release workflow uploads `build/IntelliJIdeaActionRing_1_0.lplug4` to the GitHub Release for the tag.
+Both workflows run `./build/build.sh`. The release workflow uploads `build/IntelliJIdeaActionRing_1_1.lplug4` to the GitHub Release for the tag.
 
 ```bash
-git tag v1.0.0
-git push origin v1.0.0
+git tag v1.1.0
+git push origin v1.1.0
 ```
 
 ## Merge Rules for `master`

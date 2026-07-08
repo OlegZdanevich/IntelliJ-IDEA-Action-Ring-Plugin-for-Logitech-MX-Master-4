@@ -240,7 +240,7 @@ namespace IntelliJIdeaPlugin.Tests
             AssertContains(readme, "Merge Rules for `master`");
             AssertContains(readme, "src/");
             AssertContains(readme, "build/build.sh");
-            AssertContains(readme, "build/IntelliJIdeaActionRing_1_0.lplug4");
+            AssertContains(readme, "build/IntelliJIdeaActionRing_1_1.lplug4");
             AssertContains(readme, "MIT");
         }
 

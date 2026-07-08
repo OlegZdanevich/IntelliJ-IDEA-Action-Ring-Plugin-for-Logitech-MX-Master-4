@@ -1,0 +1,12 @@
+JetBrains IntelliJ Platform Icons
+==================================
+
+This plugin includes SVG icons from the JetBrains IntelliJ Platform Icons catalog.
+
+Source: https://intellij-icons.jetbrains.design/
+Copyright: JetBrains s.r.o. and contributors, as stated in the embedded SVG headers.
+License: Apache License 2.0 for the embedded SVG files that contain the Apache 2.0 header.
+License text: Apache-2.0.txt in this metadata folder, also available at https://www.apache.org/licenses/LICENSE-2.0
+
+Each embedded SVG under actionicons/ and the derived single-color SVG under actionsymbols/ preserves the JetBrains copyright and Apache 2.0 license header from the original source file.
+The actionsymbols files are color-normalized derivatives of the same Apache-licensed SVGs for Logitech/Loupedeck action symbol requirements.
