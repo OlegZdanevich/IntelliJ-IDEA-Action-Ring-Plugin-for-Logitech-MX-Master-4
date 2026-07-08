@@ -35,9 +35,9 @@ if [ -z "$PLUGIN_API_DLL" ]; then
 fi
 
 PLUGIN_API_DIR="$(cd "$(dirname "$PLUGIN_API_DLL")" && pwd)/"
-PACKAGE_FILE="$BUILD_DIR/IntelliJIdeaActionRing_1_0.lplug4"
+PACKAGE_FILE="$BUILD_DIR/IntelliJIdeaActionRing_1_1.lplug4"
 
 "$DOTNET_BIN" build "$ROOT_DIR/src/IntelliJIdeaPlugin.csproj" -c Release /p:CreatePluginLink=false /p:PluginApiDir="$PLUGIN_API_DIR"
-"$DOTNET_BIN" run --project "$ROOT_DIR/tests/IntelliJIdeaPlugin.Tests/IntelliJIdeaPlugin.Tests.csproj" -c Release /p:PluginApiDir="$PLUGIN_API_DIR"
+"$DOTNET_BIN" run --project "$ROOT_DIR/tests/IntelliJIdeaPlugin.Tests/IntelliJIdeaPlugin.Tests.csproj" -c Release -p:PluginApiDir="$PLUGIN_API_DIR"
 "$LOGI_PLUGIN_TOOL" pack "$BUILD_DIR/bin/Release" "$PACKAGE_FILE"
 "$LOGI_PLUGIN_TOOL" verify "$PACKAGE_FILE"

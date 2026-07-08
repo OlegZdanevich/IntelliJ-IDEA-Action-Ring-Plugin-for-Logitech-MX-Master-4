@@ -1,0 +1,37 @@
+{
+  "backgroundColor": 4281438194,
+  "items": [
+    {
+      "$type": "Loupedeck.Service.ActionIconImageItem, LoupedeckShared",
+      "image": "",
+      "imageFileName": null,
+      "imageColor": 4294967295,
+      "imageRotation": "None",
+      "isVisible": true,
+      "itemType": "Image",
+      "area": {
+        "x": 6,
+        "y": 3,
+        "width": 88,
+        "height": 72,
+        "isFullScreen": true
+      }
+    },
+    {
+      "$type": "Loupedeck.Service.ActionIconTextItem, LoupedeckShared",
+      "text": "",
+      "textColor": 4294967295,
+      "fontSize": 5,
+      "fontName": "Brown Logitech Pan Light",
+      "isVisible": true,
+      "itemType": "Text",
+      "area": {
+        "x": 3,
+        "y": 76,
+        "width": 94,
+        "height": 23,
+        "isFullScreen": false
+      }
+    }
+  ]
+}

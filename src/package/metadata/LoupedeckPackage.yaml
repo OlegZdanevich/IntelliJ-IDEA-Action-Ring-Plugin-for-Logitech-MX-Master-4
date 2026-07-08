@@ -18,7 +18,7 @@ description: Logitech Action Ring plugin for JetBrains IntelliJ IDEA, MX Master 
 pluginFileName: IntelliJIdeaPlugin.dll
 
 # Plugin version.
-version: 1.0
+version: 1.1
 
 # Author of the plugin. The author can be a company or an individual developer.
 author: Oleg Zdanevich
