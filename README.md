@@ -262,28 +262,29 @@ Important files:
 Required to build:
 
 - .NET 8 SDK
-- Logi Plugin Service with `PluginApi.dll`
 - LogiPluginTool
+- `PluginApi.dll`
 
-This workspace uses project-local tooling:
+This repository keeps local build tooling under:
 
 - `build/.dotnet/`
 - `build/.tools/`
 
-The tests do not use NuGet packages and do not require internet access.
+`build/build.sh` uses `PluginApi.dll` from the installed `LogiPluginTool` package. If the tool is missing locally, the script installs it.
 
-## Build
+The tests do not use test framework NuGet packages.
 
-Build without creating or updating the Logi Plugin Service development link:
+## Local Build
+
+Run the local build gate:
 
 ```bash
-DOTNET_CLI_HOME="$PWD/build/.dotnet-home" \
-DOTNET_ROOT="$PWD/build/.dotnet" \
-PATH="$PWD/build/.dotnet:$PATH" \
-./build/.dotnet/dotnet build src/IntelliJIdeaPlugin.csproj -c Release /p:CreatePluginLink=false
+./build/build.sh
 ```
 
-Build and refresh the development link:
+It builds the plugin, runs the unit tests, packages `build/IntelliJIdeaActionRing_1_0.lplug4`, and verifies the package.
+
+To build and refresh the Logi Plugin Service development link locally:
 
 ```bash
 DOTNET_CLI_HOME="$PWD/build/.dotnet-home" \
@@ -292,51 +293,18 @@ PATH="$PWD/build/.dotnet:$PATH" \
 ./build/.dotnet/dotnet build src/IntelliJIdeaPlugin.csproj -c Release
 ```
 
-## Test
+## GitHub Actions
 
-Run the unit tests:
+The repository also has GitHub Actions workflows:
 
-```bash
-DOTNET_CLI_HOME="$PWD/build/.dotnet-home" \
-DOTNET_ROOT="$PWD/build/.dotnet" \
-PATH="$PWD/build/.dotnet:$PATH" \
-./build/.dotnet/dotnet run --project tests/IntelliJIdeaPlugin.Tests/IntelliJIdeaPlugin.Tests.csproj -c Release
-```
+- `.github/workflows/ci.yml` runs on pull requests, pushes to `master` or `main`, and manual dispatch.
+- `.github/workflows/release.yml` runs when a version tag like `v1.0.0` is pushed.
 
-The tests cover the current behavior:
-
-- macOS Run Anything AppleScript;
-- no clipboard or paste usage;
-- AppleScript string escaping;
-- current action catalog;
-- action construction;
-- shortcut action inheritance;
-- action group names;
-- haptic event YAML consistency;
-- README and license metadata.
-
-## Package
-
-Build the `.lplug4` file:
+Both workflows run `./build/build.sh`. The release workflow uploads `build/IntelliJIdeaActionRing_1_0.lplug4` to the GitHub Release for the tag.
 
 ```bash
-DOTNET_ROOT="$PWD/build/.dotnet" \
-PATH="$PWD/build/.dotnet:$PATH" \
-./build/.tools/logiplugintool pack "$PWD/build/bin/Release" "$PWD/build/IntelliJIdeaActionRing_1_0.lplug4"
-```
-
-Verify the package:
-
-```bash
-DOTNET_ROOT="$PWD/build/.dotnet" \
-PATH="$PWD/build/.dotnet:$PATH" \
-./build/.tools/logiplugintool verify "$PWD/build/IntelliJIdeaActionRing_1_0.lplug4"
-```
-
-Or run the full local gate with one command:
-
-```bash
-./build/build.sh
+git tag v1.0.0
+git push origin v1.0.0
 ```
 
 ## Merge Rules for `master`

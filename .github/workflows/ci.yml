@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+      - main
+  workflow_dispatch:
+
+jobs:
+  build-test-package:
+    name: Build, test, package
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Build, test, pack, verify
+        run: ./build/build.sh
+
+      - name: Upload plugin package
+        uses: actions/upload-artifact@v4
+        with:
+          name: IntelliJIdeaActionRing
+          path: build/IntelliJIdeaActionRing_1_0.lplug4
+          if-no-files-found: error
