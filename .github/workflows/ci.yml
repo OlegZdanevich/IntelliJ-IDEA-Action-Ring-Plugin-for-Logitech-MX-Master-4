@@ -29,5 +29,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: IntelliJIdeaActionRing
-          path: build/IntelliJIdeaActionRing_1_0.lplug4
+          path: build/IntelliJIdeaActionRing_1_1.lplug4
           if-no-files-found: error
