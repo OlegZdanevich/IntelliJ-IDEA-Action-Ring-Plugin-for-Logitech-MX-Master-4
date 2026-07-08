@@ -1,0 +1,52 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build (Debug)",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/.dotnet/dotnet build ${workspaceFolder}/src/IntelliJIdeaPlugin.csproj -c Debug /p:CreatePluginLink=false",
+      "group": "build",
+      "problemMatcher": "$msCompile",
+      "options": {
+        "env": {
+          "DOTNET_CLI_HOME": "${workspaceFolder}/build/.dotnet-home",
+          "DOTNET_ROOT": "${workspaceFolder}/build/.dotnet"
+        }
+      }
+    },
+    {
+      "label": "Build (Release)",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/.dotnet/dotnet build ${workspaceFolder}/src/IntelliJIdeaPlugin.csproj -c Release /p:CreatePluginLink=false",
+      "group": "build",
+      "problemMatcher": "$msCompile",
+      "options": {
+        "env": {
+          "DOTNET_CLI_HOME": "${workspaceFolder}/build/.dotnet-home",
+          "DOTNET_ROOT": "${workspaceFolder}/build/.dotnet"
+        }
+      }
+    },
+    {
+      "label": "Package Plugin",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/build.sh",
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "label": "Install Plugin",
+      "type": "shell",
+      "command": "${workspaceFolder}/build/.tools/logiplugintool install ${workspaceFolder}/build/IntelliJIdeaActionRing_1_0.lplug4",
+      "group": "none",
+      "problemMatcher": []
+    },
+    {
+      "label": "Uninstall Plugin",
+      "type": "shell",
+      "command": "logiplugintool uninstall IntelliJIdea",
+      "group": "none",
+      "problemMatcher": []
+    }
+  ]
+}

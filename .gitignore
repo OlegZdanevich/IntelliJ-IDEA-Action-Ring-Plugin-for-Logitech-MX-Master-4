@@ -1,0 +1,17 @@
+.DS_Store
+
+build/.dotnet/
+build/.dotnet-home/
+build/.tools/
+build/dotnet-install.sh
+build/bin/
+build/obj/
+
+*.lplug4
+!build/IntelliJIdeaActionRing_1_0.lplug4
+
+src/bin/
+src/obj/
+src/IntelliJIdeaPlugin.csproj.user
+tests/**/bin/
+tests/**/obj/

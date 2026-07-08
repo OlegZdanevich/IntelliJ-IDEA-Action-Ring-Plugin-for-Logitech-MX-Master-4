@@ -1,0 +1,19 @@
+events:
+  - name: actionStarted
+    displayName: IntelliJ action started
+    description: Triggered before a shortcut command is sent to IntelliJ IDEA.
+  - name: actionTriggered
+    displayName: IntelliJ action triggered
+    description: Triggered after an IntelliJ IDEA action is sent.
+  - name: mavenStarted
+    displayName: Maven Run Anything opened
+    description: Triggered when the plugin starts submitting mvn clean install to IntelliJ IDEA Run Anything.
+  - name: mavenSubmitted
+    displayName: Maven command submitted
+    description: Triggered after mvn clean install is submitted to IntelliJ IDEA Run Anything.
+  - name: mavenFailed
+    displayName: Maven submission failed
+    description: Triggered when the plugin cannot submit mvn clean install to IntelliJ IDEA Run Anything.
+  - name: mavenAlreadyRunning
+    displayName: Maven submission already running
+    description: Triggered when mvn clean install is requested while the plugin is already submitting it.

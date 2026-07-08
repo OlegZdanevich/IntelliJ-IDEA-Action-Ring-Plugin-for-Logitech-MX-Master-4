@@ -1,0 +1,13 @@
+haptics:
+  actionStarted:
+    DEFAULT: subtle_collision
+  actionTriggered:
+    DEFAULT: sharp_state_change
+  mavenStarted:
+    DEFAULT: wave
+  mavenSubmitted:
+    DEFAULT: happy_alert
+  mavenFailed:
+    DEFAULT: angry_alert
+  mavenAlreadyRunning:
+    DEFAULT: damp_collision

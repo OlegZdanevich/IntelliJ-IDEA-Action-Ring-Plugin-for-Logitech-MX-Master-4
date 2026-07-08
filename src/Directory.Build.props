@@ -1,0 +1,6 @@
+<Project>
+    <PropertyGroup>
+        <LangVersion>latest</LangVersion>
+        <BaseIntermediateOutputPath>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\build\obj\$(MSBuildProjectName)\'))</BaseIntermediateOutputPath>
+    </PropertyGroup>
+</Project>
